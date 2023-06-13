@@ -5,6 +5,9 @@ export const Locator = {
     // Service
     TOKEN_SERVICE: Symbol('TokenService'),
 
+    // Model
+    USER_MODEL: Symbol('UserModel'),
+
     // Controller
     BASE_CONTROLLER: Symbol('BaseControler'),
 
