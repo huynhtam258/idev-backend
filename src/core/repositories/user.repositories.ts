@@ -1,6 +1,6 @@
 import { inject } from "inversify";
 import { User } from "../interfaces/contracts";
-import { IUserReponsitory } from "../interfaces/reponsitories/user-reponsitory.interface";
+import { IUserReponsitory } from "../interfaces/reponsitories/user-repository.interface";
 import { BaseRepository } from "./base.repositories";
 import { Locator } from "../../constants/app.constant";
 import { Model } from "mongoose";
