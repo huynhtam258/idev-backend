@@ -4,10 +4,12 @@ export const Locator = {
 
     // Repository
     USER_REPOSITORY: Symbol('UserRepository'),
+    KEY_REPOSITORY: Symbol('KeyRepository'),
 
     // Service
     TOKEN_SERVICE: Symbol('TokenService'),
     USER_SERVICE: Symbol('UserService'),
+    KEY_SERVICE: Symbol('KeyService'),
 
     // Model
     USER_MODEL: Symbol('UserModel'),

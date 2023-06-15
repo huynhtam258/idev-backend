@@ -1,9 +1,10 @@
-import { inject } from "inversify";
+import { inject, injectable } from "inversify";
 import { IUserRepository } from "../interfaces/reponsitories";
 import { IUserService } from "../interfaces/services/user-service.interface";
 import { Locator } from "../../constants/app.constant";
 import { User } from "../interfaces/contracts";
 
+@injectable()
 export class UserService implements IUserService {
   constructor(
     @inject(Locator.USER_REPOSITORY) private readonly _repository: IUserRepository

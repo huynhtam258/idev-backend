@@ -1,7 +1,9 @@
 export const DocumentName = {
-    User: 'User'
+    User: 'User',
+    Key: 'Key'
 }
 
 export const CollectionName = {
-    User: 'Users'
+    User: 'Users',
+    Key: 'Keys'
 }

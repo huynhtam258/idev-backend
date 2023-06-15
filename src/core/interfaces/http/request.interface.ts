@@ -10,3 +10,11 @@ export interface SignUpRequest {
     phoneNumber: string,
     password: string
 }
+
+export interface AuthenticationRequest {
+    userId: string;
+    accessToken: string;
+    refreshToken: string;
+    publicKey: string;
+    privateKey: string;
+}
