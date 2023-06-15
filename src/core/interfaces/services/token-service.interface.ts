@@ -5,5 +5,5 @@ import { AuthenticationRequest } from "../http/request.interface";
 export interface ITokenService {
     generateJWT(request: Token): Promise<TokenPair | null>;
     verifyAccessToken(userId: string, accessToken: string): Promise<void>;
-    verifyResfreshToken(userId: string, refreshToken: string): Promise<AuthenticationRequest>;
+    verifyRefreshToken(userId: string, refreshToken: string): Promise<AuthenticationRequest>;
 }
