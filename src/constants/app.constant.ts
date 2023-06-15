@@ -10,6 +10,7 @@ export const Locator = {
     TOKEN_SERVICE: Symbol('TokenService'),
     USER_SERVICE: Symbol('UserService'),
     KEY_SERVICE: Symbol('KeyService'),
+    AUTH_SERVICE: Symbol('AuthService'),
 
     // Model
     USER_MODEL: Symbol('UserModel'),

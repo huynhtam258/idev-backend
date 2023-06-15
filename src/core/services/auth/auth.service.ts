@@ -1,17 +1,18 @@
 import { inject } from "inversify";
 import { ApiResult } from "../../../wrappers/api-result";
-import { SignInRequest } from "../../interfaces/http/request.interface";
+import { SignInRequest, SignUpRequest } from "../../interfaces/http/request.interface";
 import { AuthenticationResponse } from "../../interfaces/http/response.interface";
 import { IAuthService } from "../../interfaces/services/auth-service.interface";
 import { AuthType, Locator, StatusCode } from "../../../constants/app.constant";
 import { UserService } from "../user.service";
 import { UnauthorizedException } from "../../exceptions/unauthorized.exception";
-import { pickFields, verifyPassword } from "../../../utils";
+import { hashPassword, pickFields, verifyPassword } from "../../../utils";
 import { User } from "../../interfaces/contracts";
 import { IUserService } from "../../interfaces/services/user-service.interface";
 import { IKeyService } from "../../interfaces/services/key-service.interface";
 import { ServerException } from "../../exceptions/server.exception";
 import { ITokenService } from "../../interfaces/services/token-service.interface";
+import { ConflictDataException } from "../../exceptions/conflict-data.exception";
 
 export class AuthService implements IAuthService {
   constructor(
@@ -112,6 +113,39 @@ export class AuthService implements IAuthService {
       message: responseMessage,
       data: responseData
     });
+  }
+
+  async signUp(request: SignUpRequest): Promise<ApiResult<AuthenticationResponse>> {
+    const existing = await this._userService.repository().findByEmail(request.email);
+
+    if (existing) {
+      throw new ConflictDataException({
+        message: 'Failed to register new account.',
+        errors: ['The email address is already in use by another account.']
+      });
+    }
+
+
+    const passwordHash = await hashPassword(request.password);
+
+    const user = await this._userService.createUser({
+      full_name: request.fullName,
+      email: request.email,
+      password: passwordHash,
+      phone_number: request.phoneNumber,
+      avatar_id: '',
+      avatar_url: ''
+    });
+
+    if (!user) {
+      console.log('AuthService.signUp() => Line [76 -> 83]: Failed to create new User Document!');
+
+      throw new ServerException({
+        message: 'Failed to register new account.'
+      });
+    }
+
+    return await this.authenticateUser(user, AuthType.SIGN_UP);
   }
 
 }

@@ -1,3 +1,11 @@
+import { Request as ExpressRequest } from 'express';
+
+export interface ApiKeyRequest {
+    key: string;
+    status: boolean;
+    permissions?: string[];
+}
+
 export interface SignInRequest {
     email: string,
     password: string,
@@ -10,6 +18,12 @@ export interface SignUpRequest {
     phoneNumber: string,
     password: string
 }
+
+export interface Request extends ExpressRequest {
+    apiKey?: ApiKeyRequest;
+    authentication?: AuthenticationRequest;
+}
+
 
 export interface AuthenticationRequest {
     userId: string;
