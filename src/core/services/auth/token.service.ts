@@ -1,4 +1,4 @@
-import { inject } from "inversify";
+import { inject, injectable } from "inversify";
 import { Locator } from "../../../constants/app.constant";
 import { ITokenService } from "../../interfaces/services/token-service.interface";
 import { IKeyService } from "../../interfaces/services/key-service.interface";
@@ -7,6 +7,7 @@ import { TokenPair } from "../../interfaces/contracts/pair.interface";
 import { PayLoad, Token } from "../../interfaces/contracts/token.interface";
 import { AuthenticationRequest } from "../../interfaces/http/request.interface";
 
+@injectable()
 export class TokenService implements ITokenService {
   constructor(
     @inject(Locator.KEY_SERVICE) private readonly _keyService: IKeyService
