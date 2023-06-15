@@ -3,10 +3,10 @@ import { ApiResult } from "../../../wrappers/api-result";
 import { SignInRequest } from "../../interfaces/http/request.interface";
 import { AuthenticationResponse } from "../../interfaces/http/response.interface";
 import { IAuthService } from "../../interfaces/services/auth-service.interface";
-import { AuthType, Locator } from "../../../constants/app.constant";
+import { AuthType, Locator, StatusCode } from "../../../constants/app.constant";
 import { UserService } from "../user.service";
 import { UnauthorizedException } from "../../exceptions/unauthorized.exception";
-import { verifyPassword } from "../../../utils";
+import { pickFields, verifyPassword } from "../../../utils";
 import { User } from "../../interfaces/contracts";
 import { IUserService } from "../../interfaces/services/user-service.interface";
 import { IKeyService } from "../../interfaces/services/key-service.interface";
@@ -20,7 +20,7 @@ export class AuthService implements IAuthService {
     @inject(Locator.TOKEN_SERVICE) private readonly _tokenService: ITokenService
   ) { }
 
-  async signIn(request: SignInRequest): Promise<ApiResult<AuthenticatorResponse>> {
+  async signIn(request: SignInRequest): Promise<ApiResult<AuthenticationResponse>> {
     const existing = await this._userService.repository().findByEmail(request.email);
 
     if (!existing) {
@@ -83,6 +83,34 @@ export class AuthService implements IAuthService {
       },
       publicKey: keyPair.publicKey,
       privateKey: keyPair.privateKey
+    });
+
+    if (!tokenPair) {
+      console.log('AuthService.authenticateUser() => Line [129 -> 137]: Failed to generate token pair!');
+
+      throw new ServerException({
+        message: errorMessage
+      });
+    }
+
+    const saveUserKey = await this._keyService.saveUserKey(userId, keyPair, tokenPair);
+
+    if (!saveUserKey) {
+      console.log('AuthService.authenticateUser() => Line 147: Failed to save user key!');
+
+      throw new ServerException({
+        message: errorMessage
+      });
+    }
+
+    const responseData: AuthenticationResponse = {
+      user: pickFields(user, ['_id', 'full_name', 'email', 'avatar_url']),
+      token: tokenPair
+    };
+
+    return await ApiResult.successAsync(StatusCode.CREATED, {
+      message: responseMessage,
+      data: responseData
     });
   }
 

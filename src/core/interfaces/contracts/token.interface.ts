@@ -3,7 +3,7 @@ import { JwtPayload } from "jsonwebtoken";
 export interface PayLoad extends JwtPayload {
     userId: string,
     email: string,
-    fullName: string
+    full_name: string
 }
 
 export interface Token {
