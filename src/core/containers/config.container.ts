@@ -10,6 +10,6 @@ appContainer.load(
     routerContainerModule,
     controllerContainerModule,
     databaseContainerModule,
-    modelModuleContainer
+    modelModuleContainer,
 )
 export default appContainer;

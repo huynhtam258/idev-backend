@@ -6,5 +6,5 @@ import { UserModel, KeyModel } from "../models";
 
 export const modelModuleContainer: ContainerModule = new ContainerModule((bind) => {
     bind<Model<User>>(Locator.USER_MODEL).toConstantValue(UserModel),
-    bind<Model<Key>>(Locator.USER_MODEL).toConstantValue(KeyModel)
+    bind<Model<Key>>(Locator.KEY_MODEL).toConstantValue(KeyModel)
 })

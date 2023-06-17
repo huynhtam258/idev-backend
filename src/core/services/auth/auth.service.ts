@@ -1,4 +1,4 @@
-import { inject } from "inversify";
+import { inject, injectable } from "inversify";
 import { ApiResult } from "../../../wrappers/api-result";
 import { SignInRequest, SignUpRequest } from "../../interfaces/http/request.interface";
 import { AuthenticationResponse } from "../../interfaces/http/response.interface";
@@ -14,10 +14,11 @@ import { ServerException } from "../../exceptions/server.exception";
 import { ITokenService } from "../../interfaces/services/token-service.interface";
 import { ConflictDataException } from "../../exceptions/conflict-data.exception";
 
+@injectable()
 export class AuthService implements IAuthService {
   constructor(
     @inject(Locator.USER_SERVICE) private readonly _userService: IUserService,
-    @inject(Locator.TOKEN_SERVICE) private readonly _keyService: IKeyService,
+    @inject(Locator.KEY_SERVICE) private readonly _keyService: IKeyService,
     @inject(Locator.TOKEN_SERVICE) private readonly _tokenService: ITokenService
   ) { }
 

@@ -4,6 +4,8 @@ import compression from 'compression';
 import helmet from 'helmet';
 import { InversifyExpressServer } from 'inversify-express-utils';
 import container from './core/containers/config.container';
+import { Locator } from "./constants/app.constant";
+import { IndexRouter } from "./core/routers";
 
 const server: InversifyExpressServer = new InversifyExpressServer(container);
 
@@ -16,6 +18,8 @@ server.setConfig((app: Application) => {
     app.use(express.urlencoded({
         extended: true
     }))
+
+    app.use(`/api`, container.get<IndexRouter>(Locator.INDEX_ROUTER).getRouter())
 })
 
 export default server;
