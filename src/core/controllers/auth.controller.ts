@@ -2,7 +2,7 @@ import { inject, injectable } from "inversify";
 import { BaseController } from "./base.controller";
 import { Locator } from "../../constants/app.constant";
 import { IAuthService,  } from "../interfaces/services/auth-service.interface";
-import { NextFunction } from "express";
+import { Response, NextFunction } from "express";
 import { SignInRequest, AuthenticationResponse, SignUpRequest, Request } from "../interfaces/http";
 import { ApiResult } from "../../wrappers/api-result";
 

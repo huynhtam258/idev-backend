@@ -16,7 +16,8 @@ export const Locator = {
     USER_MODEL: Symbol('UserModel'),
 
     // Controller
-    BASE_CONTROLLER: Symbol('BaseControler'),
+    BASE_CONTROLLER: Symbol('BaseController'),
+    AUTH_CONTROLLER: Symbol('AuthController'),
 
     // Router
     INDEX_ROUTER: Symbol('IndexRouter'),

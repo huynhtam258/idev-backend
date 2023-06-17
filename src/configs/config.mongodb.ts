@@ -11,16 +11,16 @@ const dev = {
 
 const pro = {
     app: {
-        port: process.env.PRO_APP_PORT
+        port: process.env.PROD_APP_PORT
     },
     db: {
-        host: process.env.PRO_DB_HOST,
-        port: process.env.PRO_DB_PORT,
-        name: process.env.PRO_DB_NAME
+        host: process.env.PROD_DB_HOST,
+        port: process.env.PROD_DB_PORT,
+        name: process.env.PROD_DB_NAME
     }
 }
 
 const config = { dev, pro }
-console.log(config);
+console.log(process.env);
 const env = process.env.NODE_ENV || 'dev';
 export default env === 'dev' ? config.dev : config.pro;
