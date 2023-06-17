@@ -1,3 +1,5 @@
+import { config } from 'dotenv';
+config()
 const dev = {
     app: {
         port: process.env.DEV_APP_PORT
@@ -20,7 +22,7 @@ const pro = {
     }
 }
 
-const config = { dev, pro }
-console.log(process.env);
+const configEnv = { dev, pro }
+
 const env = process.env.NODE_ENV || 'dev';
-export default env === 'dev' ? config.dev : config.pro;
+export default env === 'dev' ? configEnv.dev : configEnv.pro;
