@@ -4,6 +4,7 @@ import { controllerContainerModule } from "../modules";
 import { databaseContainerModule } from "../modules/database.module";
 import { modelModuleContainer } from "../modules/model.module";
 import { serviceContainerModule } from "../services/service.module";
+import { repositoryContainerModule } from "../repositories/repository.module";
 
 const appContainer: Container = new Container()
 
@@ -12,6 +13,7 @@ appContainer.load(
     controllerContainerModule,
     databaseContainerModule,
     modelModuleContainer,
-    serviceContainerModule
+    serviceContainerModule,
+    repositoryContainerModule
 )
 export default appContainer;

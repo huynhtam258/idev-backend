@@ -1,9 +1,10 @@
 import { Router } from "express";
-import { inject } from "inversify";
+import { inject, injectable } from "inversify";
 import { Locator } from "../../constants/app.constant";
 import { AuthController } from "../controllers/auth.controller";
 import { exceptionHandler } from "../../middlewares/exception-handler.middleware";
 
+@injectable()
 export class AuthRouter {
   private readonly _anonymousRouter: Router;
   private readonly _authRouter: Router;

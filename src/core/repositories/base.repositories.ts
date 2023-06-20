@@ -1,7 +1,9 @@
 import { FilterQuery, Model, QueryOptions, UpdateQuery } from "mongoose";
 import { BaseModel } from "../interfaces/contracts";
 import { IRepository } from "../interfaces/reponsitories/repository.interface";
+import { injectable } from "inversify";
 
+@injectable()
 export class BaseRepository<T extends BaseModel> implements IRepository<T> {
   private readonly _model: Model<T>;
 
