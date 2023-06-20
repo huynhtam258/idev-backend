@@ -2,7 +2,7 @@ import { Container } from "inversify";
 import { routerContainerModule } from "../modules/router.module";
 import { controllerContainerModule } from "../modules";
 import { databaseContainerModule } from "../modules/database.module";
-import { modelModuleContainer } from "../modules/model.module";
+import { modelContainerModule } from "../modules/model.module";
 import { serviceContainerModule } from "../services/service.module";
 import { repositoryContainerModule } from "../repositories/repository.module";
 
@@ -12,7 +12,7 @@ appContainer.load(
     routerContainerModule,
     controllerContainerModule,
     databaseContainerModule,
-    modelModuleContainer,
+    modelContainerModule,
     serviceContainerModule,
     repositoryContainerModule
 )

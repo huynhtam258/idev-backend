@@ -4,7 +4,7 @@ import { Model } from "mongoose";
 import { Locator } from "../../constants/app.constant";
 import { UserModel, KeyModel } from "../models";
 
-export const modelModuleContainer: ContainerModule = new ContainerModule((bind) => {
+export const modelContainerModule: ContainerModule = new ContainerModule((bind) => {
     bind<Model<User>>(Locator.USER_MODEL).toConstantValue(UserModel),
     bind<Model<Key>>(Locator.KEY_MODEL).toConstantValue(KeyModel)
 })

@@ -8,7 +8,6 @@ export class MongoDb {
     private _instance: boolean = false
     constructor() {
         this._connectionString = `mongodb://${config.db.host}:${config.db.port}/${config.db.name}`
-        console.log(123456789);
         
         if (!this._instance) {
             this.connect()
