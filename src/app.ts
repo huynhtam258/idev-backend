@@ -8,7 +8,9 @@ import { Locator } from "./constants/app.constant";
 import { IndexRouter } from "./core/routers";
 import { MongoDb } from "./db";
 
-container.get<MongoDb>(Locator.MONGO_DB);
+const mongod = container.get<MongoDb>(Locator.MONGO_DB);
+
+mongod.seedUser();
 
 const server: InversifyExpressServer = new InversifyExpressServer(container);
 
