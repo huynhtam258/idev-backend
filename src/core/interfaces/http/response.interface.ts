@@ -7,6 +7,15 @@ export interface UserResponse {
     avatar_url: string;
 }
 
+export interface CustomerResponse {
+    _id?: string;
+    customer_name: string,
+    email: string,
+    phone_number: string,
+    description: string,
+    notice: string
+}
+
 export interface AuthenticationResponse {
     user: UserResponse,
     token: TokenPair

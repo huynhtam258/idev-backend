@@ -22,3 +22,11 @@ export interface User extends BaseModel {
   gender: string;
   is_active: boolean;
 }
+
+export interface Customer extends BaseModel {
+  customer_name: string,
+  email: string,
+  phone_number: string,
+  description: string,
+  notice: string,
+}

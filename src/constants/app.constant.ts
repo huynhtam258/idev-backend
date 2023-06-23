@@ -5,6 +5,7 @@ export const Locator = {
     // Repository
     USER_REPOSITORY: Symbol('UserRepository'),
     KEY_REPOSITORY: Symbol('KeyRepository'),
+    CUSTOMER_REPOSITORY: Symbol('CustomerRepository'),
 
     // Service
     TOKEN_SERVICE: Symbol('TokenService'),
@@ -15,6 +16,7 @@ export const Locator = {
     // Model
     USER_MODEL: Symbol('UserModel'),
     KEY_MODEL: Symbol('KeyModel'),
+    CUSTOMER_MODEL: Symbol('CustomerModel'),
 
     // Controller
     BASE_CONTROLLER: Symbol('BaseController'),
