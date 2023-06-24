@@ -17,7 +17,7 @@ export class CustomerRouter {
   }
 
   private async initializeAnonymousRoutes(): Promise<void> {
-    this._anonymousRouter.post('/create-customer', exceptionHandler(this._customerController.createCustomer)),
+    this._anonymousRouter.post('/create-customer', exceptionHandler(this._customerController.createCustomer))
   }
   public getAnonymousRouter(): Router {
     this.initializeAnonymousRoutes()

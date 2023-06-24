@@ -26,7 +26,8 @@ export const Locator = {
 
     // Router
     INDEX_ROUTER: Symbol('IndexRouter'),
-    AUTH_ROUTER: Symbol('AuthRouter')
+    AUTH_ROUTER: Symbol('AuthRouter'),
+    CUSTOMER_ROUTER: Symbol('CustomerRouter')
 }
 
 

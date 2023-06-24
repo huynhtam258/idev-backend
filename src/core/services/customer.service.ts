@@ -1,10 +1,10 @@
 import { inject, injectable } from "inversify";
 import { ICustomerService } from "../interfaces/services/customer-service.interface";
 import { ApiResult } from "../../wrappers";
-import { CustomerResponse } from "../interfaces/http";
+import { CustomerRequest, CustomerResponse } from "../interfaces/http";
 import { Locator, StatusCode } from "../../constants/app.constant";
 import { ICustomerRepository } from "../interfaces/reponsitories";
-import { Customer } from "../interfaces/contracts";
+// import { Customer } from "../interfaces/contracts";
 import { ServerException } from "../exceptions/server.exception";
 
 @injectable()
@@ -17,11 +17,11 @@ export class CustomerService implements ICustomerService {
         return this._repository
     }
 
-    public async createCustomer(request: Partial<Customer>): Promise<ApiResult<CustomerResponse>> {
+    public async createCustomer(request: CustomerRequest): Promise<ApiResult<CustomerResponse>> {
         const customer = await this._repository.create({
-            customer_name: request.customer_name,
+            customer_name: request.customerName,
             email: request.email,
-            phone_number: request.phone_number,
+            phone_number: request.phoneNumber,
             description: request.description,
             notice: request.notice
         })

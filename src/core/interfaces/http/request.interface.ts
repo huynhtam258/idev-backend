@@ -32,3 +32,11 @@ export interface AuthenticationRequest {
     publicKey: string;
     privateKey: string;
 }
+
+export interface CustomerRequest {
+    customerName: string
+    email: string
+    phoneNumber: string
+    description: string
+    notice: string
+}
