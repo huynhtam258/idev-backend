@@ -4,5 +4,6 @@ import { ICustomerRepository } from "../reponsitories";
 import { IService } from "./sevice.interface";
 
 export interface ICustomerService extends IService<ICustomerRepository>{
-    createCustomer(request: CustomerRequest): Promise<ApiResult<CustomerResponse>>
+    createCustomer(request: CustomerRequest): Promise<ApiResult<CustomerResponse>>,
+    getCustomerById(request: string): Promise<ApiResult<CustomerResponse>>
 }

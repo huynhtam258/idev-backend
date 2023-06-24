@@ -37,4 +37,13 @@ export class CustomerService implements ICustomerService {
             data: customer 
         });
     }
+
+    public async getCustomerById(customerId: string): Promise<ApiResult<CustomerResponse>> {
+        const customer = await this._repository.findById(customerId)
+
+        return await ApiResult.successAsync(StatusCode.OK, {
+            message: "Get Customer Success",
+            data: customer
+        })
+    }
 }

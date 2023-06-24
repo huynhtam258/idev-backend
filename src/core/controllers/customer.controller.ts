@@ -20,4 +20,10 @@ export class CustomerController extends BaseController {
         
         return this.handleResult(res, result)
     }
+
+    public getCustomerById = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+        const request: string = req.params.id;
+        const result: ApiResult<CustomerResponse> = await this._customerService.getCustomerById(request)
+        return this.handleResult(res, result)
+    }
 }
