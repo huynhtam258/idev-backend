@@ -13,6 +13,7 @@ export const Locator = {
     KEY_SERVICE: Symbol('KeyService'),
     AUTH_SERVICE: Symbol('AuthService'),
     CUSTOMER_SERVICE: Symbol('CustomerService'),
+    HOME_SERVICE: Symbol('HomeService'),
 
     // Model
     USER_MODEL: Symbol('UserModel'),
@@ -23,11 +24,13 @@ export const Locator = {
     BASE_CONTROLLER: Symbol('BaseController'),
     AUTH_CONTROLLER: Symbol('AuthController'),
     CUSTOMER_CONTROLLER: Symbol('CustomerController'),
+    HOME_CONTROLLER: Symbol('HomeController'),
 
     // Router
     INDEX_ROUTER: Symbol('IndexRouter'),
     AUTH_ROUTER: Symbol('AuthRouter'),
-    CUSTOMER_ROUTER: Symbol('CustomerRouter')
+    CUSTOMER_ROUTER: Symbol('CustomerRouter'),
+    HOME_ROUTER: Symbol('HomeRouter')
 }
 
 
