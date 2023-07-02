@@ -10,6 +10,6 @@ export const corsOption: CorsOptions = {
     ],
     credentials: true,
     methods: 'GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE',
-    origin: '',
+    origin: '*',
     preflightContinue: false,
   };
