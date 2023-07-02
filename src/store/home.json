@@ -1,18 +1,32 @@
 {
     "title": "",
-    "content1": {
-        "title": "",
-        "detail": ""
+    "feature": [
+        {
+            "title": "Sáng tạo",
+            "detail": "Sáng tạo trong phong cách thiết kế và luôn cập nhật xu hướng mới thường xuyên. Sản phẩm bạn nhận được là sự hội tụ của sáng tạo, chất lượng và độc đáo"
+        },
+        {
+            "title": "Kinh nghiệm",
+            "detail": "Kinh nghiệm chiến đấu nhiều năm trên chiến trường Marketing, đội ngũ chiến binh Idev sẽ giúp bạn giải quyết vấn đề một cách dễ dàng và tiết kiệm."
+        },
+        {
+            "title": "Thấu hiểu",
+            "detail": "Trải qua nhiều cuộc chiến, Idev dễ dàng nhìn nhận và thấu hiểu vấn đề một cách nhanh chóng"
+        }
+    ],
+    "content_1": {
+        "title": "Tương thích với đa thiết bị",
+        "detail": "Những sản phẩm của idev tạo ra luôn có thể chạy đa thiết bị để luôn phục vụ tốt công việc của khách hàng"
     },
-    "content2": {
-        "title": "",
-        "detail": ""
+    "content_2": {
+        "title": "Luôn lắng nghe khách hàng",
+        "detail": "Việc đặt ý kiến của khách hàng luôn được đặt lên hàng đầu để sản phẩm đạt được sự tối ưu của khách"
     },
-    "content3": {
-        "title": "",
-        "detail": ""
+    "content_3": {
+        "title": "Sứ mệnh của idev",
+        "detail": "Idev ra đời với sứ mệnh đồng hành và nâng tầm thương hiệu của bạn trên thị trường Internet. Chúng tôi giúp bạn phát triển với sự hỗ trợ của hệ sinh thái các giải pháp Marketing toàn diện"
     },
-    "content4": {
+    "content_4": {
         "title": "",
         "detail": ""
     }
