@@ -18,4 +18,10 @@ export class HomeController extends BaseController {
 
         return this.handleResult(res, result)
     }
+
+    editHomeData = async (req: Request, res: Response, next: Function): Promise<void> => {
+        const result: ApiResult<any> = await this._homeService.writeHomeData(req.body);
+
+        return this.handleResult(res, result)
+    }
 }

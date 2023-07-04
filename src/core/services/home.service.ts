@@ -15,4 +15,14 @@ export class HomeService implements IHomeService{
             data: JSON.parse(dataJson)
         })
     }
+
+    public async writeHomeData(data: any): Promise<ApiResult<any>> {
+        // const dataJson = fs.readFileSync('src/store/home.json', 'utf-8')
+        await fs.writeFileSync('src/store/home.json', JSON.stringify(data), 'utf8')
+
+        return ApiResult.successAsync(StatusCode.OK, {
+            message: "Edit home success",
+            data: null
+        })
+    }
 }

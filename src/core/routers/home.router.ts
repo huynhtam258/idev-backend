@@ -15,6 +15,7 @@ export class HomeRouter {
 
     private async initializeAnonymousRoutes(): Promise<void> {
         this._homeRouter.get('/', exceptionHandler(this._homeController.getHomeData))
+        this._homeRouter.put('/', exceptionHandler(this._homeController.editHomeData))
       }
       public getAnonymousRouter(): Router {
         this.initializeAnonymousRoutes()
