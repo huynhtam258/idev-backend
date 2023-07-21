@@ -19,6 +19,7 @@ export const Locator = {
     USER_MODEL: Symbol('UserModel'),
     KEY_MODEL: Symbol('KeyModel'),
     CUSTOMER_MODEL: Symbol('CustomerModel'),
+    PRICE_MODEL: Symbol('PriceModel'),
 
     // Controller
     BASE_CONTROLLER: Symbol('BaseController'),
