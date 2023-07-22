@@ -9,6 +9,8 @@ import { ICustomerService } from "../interfaces/services/customer-service.interf
 import { CustomerService } from "./customer.service";
 import { IHomeService } from "../interfaces/services/home-service.interface";
 import { HomeService } from "./home.service";
+import { IPriceService } from "../interfaces/services/price-service.interface";
+import { PriceService } from "./price.service";
 
 export const serviceContainerModule: ContainerModule = new ContainerModule((bind) => {
     bind<IAuthService>(Locator.AUTH_SERVICE).to(AuthService).inRequestScope()
@@ -17,4 +19,5 @@ export const serviceContainerModule: ContainerModule = new ContainerModule((bind
     bind<IUserService>(Locator.USER_SERVICE).to(UserService).inRequestScope()
     bind<ICustomerService>(Locator.CUSTOMER_SERVICE).to(CustomerService).inRequestScope()
     bind<IHomeService>(Locator.HOME_SERVICE).to(HomeService).inRequestScope()
+    bind<IPriceService>(Locator.PRICE_SERVICE).to(PriceService).inRequestScope()
 })

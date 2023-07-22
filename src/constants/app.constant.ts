@@ -33,7 +33,8 @@ export const Locator = {
     INDEX_ROUTER: Symbol('IndexRouter'),
     AUTH_ROUTER: Symbol('AuthRouter'),
     CUSTOMER_ROUTER: Symbol('CustomerRouter'),
-    HOME_ROUTER: Symbol('HomeRouter')
+    HOME_ROUTER: Symbol('HomeRouter'),
+    PRICE_ROUTER:Symbol('PriceRouter')
 }
 
 
