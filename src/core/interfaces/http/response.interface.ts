@@ -29,3 +29,9 @@ export interface KeyResponse {
     refreshToken: string;
     oldRefreshTokens: string[];
 }
+
+export interface PriceResponse {
+    price_name: string,
+    fixed_price: string,
+    feature: string[]
+}

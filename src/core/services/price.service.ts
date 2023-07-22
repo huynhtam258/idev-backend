@@ -2,7 +2,9 @@ import { inject, injectable } from "inversify";
 import { IPriceService } from '../interfaces/services/price-service.interface'
 import { Price } from "../interfaces/contracts";
 import { IPriceRepository } from "../interfaces/reponsitories/price-repository.interface";
-import { Locator } from "../../constants/app.constant";
+import { Locator, StatusCode } from "../../constants/app.constant";
+import { PriceRequest, PriceResponse } from "../interfaces/http";
+import { ApiResult } from "../../wrappers";
 @injectable()
 export class PriceService implements IPriceService {
   constructor(
@@ -13,15 +15,20 @@ export class PriceService implements IPriceService {
   repository(): IPriceRepository {
     return this._repository;
   }
-  async createPrice(request: Partial<Price>) {
+  async createPrice(request: PriceRequest): Promise<ApiResult<PriceResponse | null>> {
     const price = await this.repository().create({
-      price_name: request.price_name,
-      fixed_price: request.fixed_price,
+      price_name: request.priceName,
+      fixed_price: request.fixedPrice,
       feature: request.feature
     })
     if (!price) {
-      return null
+      return await ApiResult.failAsync(StatusCode.BAD_REQUEST, {
+        message: "Bad Request"
+      })
     }
-    return price
+    return await ApiResult.successAsync(StatusCode.CREATED, {
+      message: 'Created',
+      data: price
+    })
   }
 }

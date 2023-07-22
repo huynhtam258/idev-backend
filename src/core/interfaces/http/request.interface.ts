@@ -40,3 +40,9 @@ export interface CustomerRequest {
     description: string
     notice: string
 }
+
+export interface PriceRequest {
+    priceName: string,
+    fixedPrice: string,
+    feature: string[]
+}
