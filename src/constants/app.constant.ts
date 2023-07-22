@@ -14,6 +14,7 @@ export const Locator = {
     AUTH_SERVICE: Symbol('AuthService'),
     CUSTOMER_SERVICE: Symbol('CustomerService'),
     HOME_SERVICE: Symbol('HomeService'),
+    PRICE_SERVICE: Symbol('PriceService'),
 
     // Model
     USER_MODEL: Symbol('UserModel'),
@@ -26,6 +27,7 @@ export const Locator = {
     AUTH_CONTROLLER: Symbol('AuthController'),
     CUSTOMER_CONTROLLER: Symbol('CustomerController'),
     HOME_CONTROLLER: Symbol('HomeController'),
+    PRICE_CONTROLLER: Symbol('PriceController'),
 
     // Router
     INDEX_ROUTER: Symbol('IndexRouter'),
