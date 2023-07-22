@@ -44,5 +44,6 @@ export interface CustomerRequest {
 export interface PriceRequest {
     priceName: string,
     fixedPrice: string,
+    priceType: string,
     feature: string[]
 }

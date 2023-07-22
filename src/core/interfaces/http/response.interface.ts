@@ -33,5 +33,6 @@ export interface KeyResponse {
 export interface PriceResponse {
     price_name: string,
     fixed_price: string,
+    price_type: string,
     feature: string[]
 }

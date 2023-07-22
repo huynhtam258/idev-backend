@@ -34,5 +34,6 @@ export interface Customer extends BaseModel {
 export interface Price extends BaseModel {
   price_name: string,
   fixed_price: string,
+  price_type: string,
   feature: string[]
 }

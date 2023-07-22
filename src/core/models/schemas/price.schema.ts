@@ -11,6 +11,11 @@ export const priceSchema: Schema<Price> = new Schema<Price>({
         type: String,
         required: true
     },
+    price_type: {
+        type: String,
+        enum: ['advance', 'premium'],
+        default: 'advance'
+    },
     feature: {
         type: [String],
     }

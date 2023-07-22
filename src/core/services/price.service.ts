@@ -19,6 +19,7 @@ export class PriceService implements IPriceService {
     const price = await this.repository().create({
       price_name: request.priceName,
       fixed_price: request.fixedPrice,
+      price_type: request.priceType,
       feature: request.feature
     })
     if (!price) {
