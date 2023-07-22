@@ -32,4 +32,17 @@ export class PriceService implements IPriceService {
       data: price
     })
   }
+
+  async getPrices(): Promise<ApiResult<PriceResponse[] | null>> {
+    const prices = await this.repository().findAll()
+    if (!prices) {
+      return await ApiResult.failAsync(StatusCode.BAD_REQUEST, {
+        message: "Bad Request"
+      })
+    }
+    return await ApiResult.successAsync(StatusCode.OK, {
+      message: "Get All Prices Successfully",
+      data: prices
+    })
+  }
 }

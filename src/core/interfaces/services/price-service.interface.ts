@@ -6,4 +6,5 @@ import { IService } from "./sevice.interface";
 
 export interface IPriceService extends IService<IPriceRepository> {
     createPrice(request: PriceRequest): Promise<ApiResult<PriceResponse | null>>
+    getPrices(): Promise<ApiResult<PriceResponse[] | null>>
 }

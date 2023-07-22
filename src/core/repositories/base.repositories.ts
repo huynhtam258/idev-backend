@@ -30,10 +30,15 @@ export class BaseRepository<T extends BaseModel> implements IRepository<T> {
     const result = await this._model.findByIdAndDelete(id);
     return !!result;
   }
+
+  async findAll(): Promise<T[]> {
+    return await this._model.find().lean()
+  }
   
   async findById(id: string): Promise<T | null> {
     return await this._model.findById(id).lean()
   }
+
   async findFirst(filter: FilterQuery<T>): Promise<T | null> {
     return await this._model.findOne(filter).lean()
   }

@@ -1,6 +1,8 @@
 import { FilterQuery, UpdateQuery } from "mongoose";
 
 export interface IRepository<T> {
+    findAll(): Promise<T[]>
+    
     findById(id: string): Promise<T | null>;
 
     findFirst(filter: FilterQuery<T>): Promise<T | null>
