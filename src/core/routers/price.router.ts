@@ -16,6 +16,7 @@ export class PriceRouter {
 
   private async initializeAnonymousRoutes(): Promise<void> {
     this._anonymousRouter.post('/', exceptionHandler(this._priceController.createPrice))
+    this._anonymousRouter.get('/', exceptionHandler(this._priceController.getPrices))
   }
 
   public getAnonymousRouter(): Router {

@@ -9,7 +9,7 @@ import { ApiResult } from "../../wrappers";
 @injectable()
 export class PriceController extends BaseController {
     constructor(
-       @inject(Locator.PRICE_SERVICE) private readonly _priceService: IPriceService 
+        @inject(Locator.PRICE_SERVICE) private readonly _priceService: IPriceService
     ) {
         super()
     }
@@ -17,7 +17,12 @@ export class PriceController extends BaseController {
     public createPrice = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
         const request: PriceRequest = req.body;
         const result: ApiResult<PriceResponse | null> = await this._priceService.createPrice(request);
-        
+
+        return this.handleResult(res, result)
+    }
+
+    public getPrices = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+        const result: ApiResult<PriceResponse[] | null> = await this._priceService.getPrices();
         return this.handleResult(res, result)
     }
 }
