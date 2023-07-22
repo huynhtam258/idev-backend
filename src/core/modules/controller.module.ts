@@ -4,7 +4,7 @@ import { Locator } from "../../constants/app.constant";
 import { AuthController } from "../controllers/auth.controller";
 import { CustomerController } from "../controllers/customer.controller";
 import { HomeController } from "../controllers/home.controlller";
-import { PriceController } from "../controllers/price.controll";
+import { PriceController } from "../controllers/price.controller";
 
 export const controllerContainerModule: ContainerModule = new ContainerModule((bind) => {
     bind<BaseController>(Locator.BASE_CONTROLLER).to(BaseController).inSingletonScope()
