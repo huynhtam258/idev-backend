@@ -9,7 +9,7 @@ services:
     build: 
       context: '../'
       dockerfile: Dockerfile
-    restart: unless-stoped
+    restart: unless-stopped
     environment:
       - DEV_DB_HOST=localhost
       - DEV_DB_PORT=27077
