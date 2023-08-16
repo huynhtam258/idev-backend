@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:18-alpine
 
 WORKDIR /idev/backend
 
@@ -10,8 +10,8 @@ RUN npm install -g @babel/core @babel/cli
 
 RUN npm install -g typescript
 
-RUN npm install bcrypt
-
 COPY . .
+
+RUN npm run build-src
 
 CMD ["npm", "run", "build"]

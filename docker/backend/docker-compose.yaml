@@ -7,7 +7,7 @@ services:
       - '27077:27017'
   backend:
     build: 
-      context: '../'
+      context: '../../ecommerce-backend-ts'
       dockerfile: Dockerfile
     restart: unless-stopped
     environment:
