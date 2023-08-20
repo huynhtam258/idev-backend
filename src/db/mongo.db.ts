@@ -25,8 +25,6 @@ export class MongoDb {
         mongoose.connect(this._connectionString)
             .then(_ => console.log(`Connected Mongodb success`))
             .catch(err => {
-                
-        console.log(err);
                 console.log(`Error Connect!`)});
         this._instance = true
     }
