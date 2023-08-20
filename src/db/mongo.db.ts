@@ -13,7 +13,7 @@ export class MongoDb {
         @inject(Locator.USER_MODEL) private readonly _userModel: Model<User>,
         @inject(Locator.AUTH_SERVICE) private readonly _authService: IAuthService
     ) {
-        this._connectionString = `mongodb://127.0.0.1:${config.db.port}/${config.db.name}`
+        this._connectionString = `mongodb://${config.db.host}:${config.db.port}/${config.db.name}`
         
         if (!this._instance) {
             this.connect()
